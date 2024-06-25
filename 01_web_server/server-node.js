@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/plain");
     res.end("Hello, my name is koushik chowdhury and i am a web developer.");
+    console.log(headers())
   } else {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/plain");
