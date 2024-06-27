@@ -21,34 +21,58 @@ This document provides an in-depth explanation of a simple Node.js HTTP server c
   - **Request (`req`)**: Represents the HTTP request and contains details such as the URL and headers.
   - **Response (`res`)**: Represents the HTTP response that the server sends back to the client.
 
-#### Handling Different URLs
+### Handling Different URLs
 
-1. **Root URL (`/`)**
-   - **Code**: `if (req.url === "/") { ... }`
-   - **Explanation**:
-     - `req.url === "/"`: Checks if the request URL is the root.
-     - `res.statusCode = 200`: Sets the HTTP status code to 200 (OK).
-     - `res.setHeader("Content-Type", "text/plain")`: Sets the response header to indicate plain text content.
-     - `console.log(req.headers)`: Logs the request headers to the console.
-     - `res.end("Hello koushik, Our server is running")`: Ends the response with the message.
+#### Root URL (`/`)
 
-2. **Name URL (`/name`)**
-   - **Code**: `else if (req.url === "/name") { ... }`
-   - **Explanation**:
-     - `req.url === "/name"`: Checks if the request URL is `/name`.
-     - The rest follows the same logic as the root URL.
+- **Code**: `if (req.url === "/") { ... }`
+- **Explanation**:
+  - `req.url === "/"`: Checks if the request URL is the root.
+  - **Setting Status Code**:
+    - **Code**: `res.statusCode = 200;`
+    - **Explanation**: Sets the HTTP status code to 200 (OK). The status code is a three-digit number that indicates the result of the HTTP request.
+    - **Common Status Codes**:
+      - `200 OK`: The request was successful.
+      - `404 Not Found`: The requested resource was not found.
+      - `500 Internal Server Error`: The server encountered an error.
+  - **Setting Response Header**:
+    - **Code**: `res.setHeader("Content-Type", "text/plain");`
+    - **Explanation**: Sets the response header to indicate plain text content.
+  - **Logging Headers**:
+    - **Code**: `console.log(req.headers);`
+    - **Explanation**: Logs the request headers to the console.
+  - **Ending the Response**:
+    - **Code**: `res.end("Hello koushik, Our server is running");`
+    - **Explanation**: Ends the response with the message. The `res.end` method signals to the server that all of the response headers and body have been sent.
 
-3. **About URL (`/about`)**
-   - **Code**: `else if (req.url === "/about") { ... }`
-   - **Explanation**:
-     - `req.url === "/about"`: Checks if the request URL is `/about`.
-     - The rest follows the same logic as the root URL.
+#### Name URL (`/name`)
 
-4. **Default Case (404 Not Found)**
-   - **Code**: `else { ... }`
-   - **Explanation**:
-     - If none of the above URLs match, this block is executed.
-     - The HTTP status code is set to `200` (OK), but a `404 Not found` message is returned.
+- **Code**: `else if (req.url === "/name") { ... }`
+- **Explanation**:
+  - `req.url === "/name"`: Checks if the request URL is `/name`.
+  - The rest follows the same logic as the root URL.
+
+#### About URL (`/about`)
+
+- **Code**: `else if (req.url === "/about") { ... }`
+- **Explanation**:
+  - `req.url === "/about"`: Checks if the request URL is `/about`.
+  - The rest follows the same logic as the root URL.
+
+#### Default Case (404 Not Found)
+
+- **Code**: `else { ... }`
+- **Explanation**:
+  - If none of the above URLs match, this block is executed.
+  - **Setting Status Code**:
+    - **Code**: `res.statusCode = 404;`
+    - **Explanation**: Sets the HTTP status code to 404 (Not Found).
+  - **Setting Response Header**:
+    - **Code**: `res.setHeader("Content-Type", "text/plain");`
+    - **Explanation**: Sets the response header to indicate plain text content.
+  - **Ending the Response**:
+    - **Code**: `res.end("404 Not found");`
+    - **Explanation**: Ends the response with a "404 Not found" message.
 
 ### Starting the Server
 
@@ -56,7 +80,7 @@ This document provides an in-depth explanation of a simple Node.js HTTP server c
 - **Explanation**: The `listen` method starts the server and makes it listen for requests on the specified `hostname` and `port`.
   - The callback function logs a message to the console once the server is running.
 
-## Full Example Code
+### Full Example Code
 
 Here is the complete code for reference:
 
@@ -80,7 +104,7 @@ const server = http.createServer((req, res) => {
     res.setHeader("Content-Type", "text/plain");
     res.end("Hello, my name is koushik chowdhury and i am a web developer.");
   } else {
-    res.statusCode = 200;
+    res.statusCode = 404;
     res.setHeader("Content-Type", "text/plain");
     res.end("404 Not found");
   }
