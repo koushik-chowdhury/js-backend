@@ -1,6 +1,6 @@
 <!-- day 1 -->
 
-# File Handling (fs)
+> # *File Handling (fs)*
 
 > **fs Stand for -> File System**
 
@@ -87,9 +87,10 @@ fs.appendFile("./test.txt", "Hey adding data Asynchronously", (err) => {
   }
 });
 ```
-<hr>
+<p style="text-align:center; color: red; font-weight:bold">X------ END HERE ------X</p>
 
-# Node.js HTTP Server Example
+
+> # *Node.js HTTP Server Example*
 
 This document provides an in-depth explanation of a simple Node.js HTTP server code. The server responds to different URLs with different messages.
 
