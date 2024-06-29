@@ -9,7 +9,7 @@ This document provides an in-depth explanation of a simple Node.js HTTP server c
 - **Code**: `const http = require("http");`
 - **Explanation**: The `http` module is required to create the server. The `require` function imports this module.
 
-### Defining the Hostname and Port
+### Defining the Hostname and the Port
 
 - **Code**: `const hostname = "127.0.0.1"; const port = 3001;`
 - **Explanation**: `hostname` and `port` are constants defining where the server will listen for requests. `127.0.0.1` is the localhost IP address, and `3001` is the port number.
@@ -43,7 +43,7 @@ This document provides an in-depth explanation of a simple Node.js HTTP server c
     - **Explanation**: Logs the request headers to the console.
   - **Ending the Response**:
     - **Code**: `res.end("Hello koushik, Our server is running");`
-    - **Explanation**: Ends the response with the message. The `res.end` method signals to the server that all of the response headers and body have been sent.
+    - **Explanation**: Ends the response wit the message. The `res.end` method signals to the server that all of the response headers and body have been sent.
 
 #### Name URL (`/name`)
 
