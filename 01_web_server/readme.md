@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
   } else {
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/plain");
-    res.end("404 Not found");
+    res.end("404 Not found! Go to home page.");
   }
 });
 
