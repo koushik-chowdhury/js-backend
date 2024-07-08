@@ -40,7 +40,7 @@ app.post("/api/users", (req, res) => {
     if (err) {
       return res.status(500).json({ status: "error", message: err.message });
     } else {
-      return res.json({ status: " success", id: users.length, Name: body.first_name});
+      return res.json({ status: " success, Your record added", id: users.length, Name: body.first_name});
     }
   });
 });
