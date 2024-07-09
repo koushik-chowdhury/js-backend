@@ -48,7 +48,7 @@ app.post("/api/users", (req, res) => {
 // patch rout
 
 app.patch("/api/users/:id", (req, res) => {
-  return res.json({ status: "pending" });
+  return res.json({ status: "Feature will available soon" });
 });
 
 // delete rout
