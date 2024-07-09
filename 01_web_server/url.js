@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   fs.appendFile("log.txt", log, (err) => {
     switch (myUrl.pathname) {
       case "/":
-        res.end("HomePage");
+        res.end("Welcome to HomePage");
         break;
       case "/about":
         const username = myUrl.query.myname;
