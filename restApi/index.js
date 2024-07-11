@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const users = require("./MOCK_DATA.json");
+const { log } = require("console");
 const app = express();
 const port = 3000;
 
@@ -49,6 +50,7 @@ app.post("/api/users", (req, res) => {
 
 app.patch("/api/users/:id", (req, res) => {
   return res.json({ status: "Feature will available soon" });
+  console.log("Edit option not available");
 });
 
 // delete rout
