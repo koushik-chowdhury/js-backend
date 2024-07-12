@@ -49,8 +49,24 @@ app.post("/api/users", (req, res) => {
 // patch rout
 
 app.patch("/api/users/:id", (req, res) => {
-  return res.json({ status: "Feature will available soon" });
-  console.log("Edit option not available");
+  const id = Number(req.params.id);
+  const body = req.body;
+  const userIndex = users.findIndex((user) => user.id == id);
+
+  if (userIndex !== -1) {
+    const updatedUser = { ...users[userIndex], ...body };
+    users[userIndex] = updatedUser;
+
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
+      if (err) {
+        return res.status(500).json({ status: "error", message: err.message });
+      } else {
+        return res.json({ status: "success", message: "User data updated", user: updatedUser });
+      }
+    });
+  } else {
+    res.status(404).json({ status: "error", message: "User not found" });
+  }
 });
 
 // delete rout
